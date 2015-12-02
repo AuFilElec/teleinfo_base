@@ -29,4 +29,4 @@ Les informations d'ERDF concernant la téléinformation client (TIC) est disponi
  + J'ai remarqué aussi que par moment, les données ne sont pas correctes. Malgré le fait qu'une vérification est faite sur le checksum retourné par le compteur sur chaque ligne.
 
 ## Licence
-Ces sources sont libres et peuvent être partagées sans aucune garantie quelconque.
+Ces sources sont libres et peuvent être partagées sans aucune garantie quelconque. Vous pouvez consulter la [licence](https://github.com/AuFilElec/teleinfo_base/blob/master/LICENSE).
