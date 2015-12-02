@@ -8,7 +8,6 @@ void setup()
   #ifdef debug
     Serial.println("Connected");
   #endif
-  //ethernetIsConnected = internetConnect();
   // starting TeleInfo capture
   myTeleInfo = new TeleInfo(version, &client, api_key);
 }
