@@ -13,15 +13,18 @@
        server records the received data in a MySQL data base.                                                          
      + This is the prod Light version with no LCD, no status LED, no mode button ... 
      + Runs on an Arduino R3, RX on PIN 08
-                                                                                                                        */
-char version[21] = "TeleInfoLight V 1.01";
+*/
+char version[21] = "teleinfo_base V 1.02";
 /*________________________________________________________________________________________________________________________	  
                 VERSIONS HISTORY                                                        | Program space | Dynamic memory |
                                                                                         |  used / total | used  / total  |
 ========================================================================================|---------------|----------------|
+	Version 1.02	02/12/2015	+ Ajout des classes RestClient et amélioration	|		|		 |
+					  des méthodes de récupération des data		|		|		 |
 	Version 1.01	23/03/2014	+ Some code cleaning                            | 21070 /32256  | 781 used /2048 |
-	Version 1.00	22/03/2014	+ Based on TÃƒÂ©lÃƒÂ©Info V1.61, this is a light      | 21356 /32256  | 785 used /2048 |
-          	                 	  that don't have LCD, mode button, status leds |               |                |
+	Version 1.00	22/03/2014	+ Based on TéléInfo V1.61, 
+					  this is a light that don't have LCD,		| 21356 /32256  | 785 used /2048 |
+          	                 	   mode button, status leds			|               |                |
 ========================================================================================================================*/
 /*
 Hardware needed :
@@ -29,8 +32,8 @@ Hardware needed :
   + 1 x Ethernet shield (used in the final project)
   + 1 x Opto Coupler : SFH620A
   + 1 x LED
-  + 1 x 1 kÃŽÂ© resistor
-  + 1 x 4,7 kÃŽÂ© resistor
+  + 1 x 1 kOhm resistor
+  + 1 x 4,7 kOhm resistor
   
 PIN USED :
   PIN 8  : Software Serial RX
@@ -38,7 +41,18 @@ PIN USED :
   PIN 11 : ETH, SPI bus MOSI
   PIN 12 : ETH, SPI bus MISO
   PIN 13 : ETH, SPI bus SCK
-  
+
+Sample BASE Teleinfo frame content:
+ADCO 270622224349 B
+OPTARIF BASE <
+ISOUSC 30 9
+PTEC TH..  
+IINST 002 Y
+IMAX 035 G
+PAPP 00520 (
+ADPS 2 .     (optionel: N'apparait que lorsque vous dépassez la limite de l'intensité souscrite)
+MOTDETAT 000000 B
+
 Sample TEMPO Teleinfo frame content (Frame length = 274):
 
 Heures pleines/Heures creuses :
